@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: antiquewhite;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.imgContainer {
+  max-width: 800px;
+  height: 300px;
+  position: relative;
+  margin: 30px auto 0;
+  border-radius: 1em;
+  overflow: hidden;
+}
+.imgContainer img {
+  position: absolute;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 1;
+}
+
+.imgContainer img.active {
+  opacity: 1;
+}
+.imgNumber {
+  z-index: 2;
+  background-color: black;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: fit-content;
+  font-size: 1.2rem;
+  padding: 0.3em;
+  font-weight: bold;
+  text-transform: capitalize;
+  border-radius: 0.5em;
+}
+.angle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.28);
+  z-index: 3;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+.angle:hover {
+  color: rgba(255, 255, 255, 0.78);
+}
+.angle-right {
+  right: 10px;
+}
+.angle-left {
+  left: 10px;
+}
+.bullets {
+  max-width: 800px;
+  overflow-x: auto;
+  margin: 5px auto;
+}
+.bullets ul {
+  list-style-type: none;
+  display: flex;
+  gap: 2px;
+  width: fit-content;
+  margin: 0 auto;
+}
+.bullets ul li {
+  background-color: #f1f5f9;
+  padding: 0.3em 0.5em;
+  border-radius: 0.2em;
+  border: 1px solid #222;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.bullets ul li:hover,
+.bullets ul li.active {
+  background-color: #09e8e8;
+  color: white;
+  font-weight: bold;
+}
+/* adding the like button */
+.like {
+  position: absolute;
+  bottom: 0;
+  right: 2rem;
+  z-index: 5000;
+  font-size: 1.825rem;
+  color: blue;
+  transition: 0.5s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+.like:hover {
+  opacity: 1;
+}
+.likeeffect {
+  background-image: url("https://cdn0.iconfinder.com/data/icons/social-reaction-and-emoji/519/love-256.png");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 10000;
+  bottom: 0;
+  right: 2rem;
+  transform: translate(-50%, -50%);
+  animation: animate 5s linear;
+}
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    filter: hue-rotate();
+  }
+  100% {
+    transform: translate(-50%, -2000%);
+    opacity: 0;
+    filter: hue-rotate(720deg);
+  }
+}
+.dislike {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 5000;
+  font-size: 1.825rem;
+  color: blue;
+  transition: 0.5s;
+  cursor: pointer;
+  opacity: 0.4;
+}
+.dislike:hover {
+  opacity: 1;
+}
+.dislikeeffect {
+  background-image: url("https://cdn0.iconfinder.com/data/icons/social-reaction-and-emoji/519/angry-512.png");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 10000;
+  bottom: 0;
+  right: 0;
+  transform: translate(-50%, -50%);
+  animation: animate 5s linear;
+}
